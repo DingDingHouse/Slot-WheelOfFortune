@@ -21,6 +21,7 @@ pipeline {
                 script {
                     bat '''
                     cd /d D:\\
+                    git config --system core.longpaths true
                     git config --global http.postBuffer 3221225472
                     git clone git@github.com:DingDingHouse/Slot-WheelOfFortune.git D:\\Slot-WheelOfFortune || echo "Repository already exists, pulling latest changes."
                     cd Slot-WheelOfFortune
