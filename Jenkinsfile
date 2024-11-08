@@ -62,8 +62,10 @@ pipeline {
                         git checkout main
                         git checkout develop -- Builds
                         robocopy Builds\\WebGL\\ .\\ /move /e /copyall
+                        git lfs install
+                        git lfs track "*.wasm" "*.data" "*.js"
                         git rm -r -f Builds
-                        git add -f Build index.html
+                        git add -f Build index.html .gitattributes
                         git commit -m "adding new Builds" || echo "Nothing to commit"
                         git push origin main
                         git checkout develop
